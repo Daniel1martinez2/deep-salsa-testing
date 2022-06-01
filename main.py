@@ -30,5 +30,5 @@ counter = 0
 for thread in threads:
     time.sleep((thread['pulse'] - counter)/1000)
     counter = thread['pulse']
-    print(thread)
+    print(thread['pulse'])
     thread['th'].start()
