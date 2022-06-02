@@ -2,8 +2,9 @@ import time
 from playsound import playsound
 import threading
 
-SONG = './data/sound/tracks/388.wav'
-DATA = './data/txtfiles/388.txt'
+VALUE = 377
+SONG = f'./data/sound/tracks/{VALUE}.wav'
+DATA = f'./data/txtfiles/{VALUE}.txt'
 PULSE = './data/sound/pulse/bellShort.wav'
 
 def play1():
