@@ -6,6 +6,6 @@
 ## Activate the environment
 `source venv/bin/activate`
 ## Install the dependencies
-`source venv/bin/activate`
+`pip install -r requirements.txt`
 ## Use it
 `python3 main.py`
