@@ -1,13 +1,17 @@
-from ast import Or
+from colorama import Fore, Back, Style
+import librosa
 import time
 from playsound import playsound as play_sound
 import threading
 
-user_input = input('Which song (311, 369, 377, 388): ')
-VALUE =  int(user_input) if not user_input  == '' else 311
+user_input = input('Which song (310, 311, 312, 313): ')
+VALUE =  int(user_input) if not user_input  == '' else 310
+rate = librosa.get_samplerate("./data/sound/tracks/311.wav")
+print(Fore.RED + f"The song rate is {rate}")
+rate_value = '48K' if rate == 48000 else '44.1K'
 SONG = f'./data/sound/tracks/{VALUE}.wav'
-DATA = f'./data/txtfiles/{VALUE}.txt'
-PULSE = './data/sound/pulse/invaders.wav'
+DATA = f'./data/txtfiles/{rate_value}/{VALUE}.txt'
+PULSE = './data/sound/pulse/bellShort.wav'
 
 def hit_pulse():
     play_sound(PULSE)
@@ -33,6 +37,6 @@ counter = 0
 
 for thread in threads:
     time.sleep((thread['pulse'] - counter)/1000)
+    print(Fore.GREEN + f"{thread['pulse']} 💥💥💥  {(thread['pulse'] - counter)} ")
     counter = thread['pulse']
-    print(f"{thread['pulse']} 💥💥💥")
     thread['th'].start()
