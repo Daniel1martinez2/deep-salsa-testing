@@ -6,7 +6,7 @@ import threading
 
 user_input = input('Which song (310, 311, 312, 313): ')
 VALUE =  int(user_input) if not user_input  == '' else 310
-rate = librosa.get_samplerate("./data/sound/tracks/311.wav")
+rate = librosa.get_samplerate(f"./data/sound/tracks/{VALUE}.wav")
 print(Fore.RED + f"The song rate is {rate}")
 rate_value = '48K' if rate == 48000 else '44.1K'
 SONG = f'./data/sound/tracks/{VALUE}.wav'
